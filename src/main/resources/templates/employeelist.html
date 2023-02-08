@@ -31,7 +31,7 @@
                 <td data-th-text= "${emp.postalCode}"> </td>
                 <td>
                     <a class="btn btn-primary" th:href="@{/employees/addnew}">Update</a>
-                    <a class="btn btn-primary" th:href="@{#}">Delete</a>
+                    <a class="btn btn-primary" th:href="@{/employees/deleteEmployee/{email}(email=${emp.email})}">Delete</a>
                 </td>
             </tr>
             </tbody>

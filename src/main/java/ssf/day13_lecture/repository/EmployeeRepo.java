@@ -14,7 +14,7 @@ public class EmployeeRepo {
 
     public List<Employee> employees;
 
-    
+
     public EmployeeRepo() throws ParseException {
         if (employees == null) {
             employees = new ArrayList<Employee>();
@@ -58,6 +58,13 @@ public class EmployeeRepo {
         return result;
 
     }
+
+    public Employee findByEmailId(String email) {
+        Employee emp = employees.stream().filter(e -> e.getEmail().equals(email)).findFirst().get();
+        return emp;
+    }
+
+
 
 
 }
