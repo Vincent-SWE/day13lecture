@@ -65,6 +65,8 @@ public class Employee {
         this.postalCode = postalCode;
     }
 
+    public Employee() {}
+
 
     // Generate Getters and Setters
     public String getFirstName() {
@@ -194,16 +196,6 @@ public class Employee {
                 + phoneNumber + ", salary=" + salary + ", birthDay=" + birthDay + ", address=" + address
                 + ", postalCode=" + postalCode + "]";
     }
-
-
-
-
-
-
-
-
-
-    
 
 
 }
