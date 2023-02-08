@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import jakarta.validation.Valid;
+
 import java.util.*;
 import ssf.day13_lecture.repository.EmployeeRepo;
 import ssf.day13_lecture.model.Employee;
@@ -35,18 +37,20 @@ public class EmployeeController {
         return "employeeadd";
     }
 
-    // @PostMapping("/addnew")
-    // public String addEmployee(@ModelAttribute("employee") Employee employeeForm, Model 
-    // model, BindingResult result) {
+    @PostMapping("/addnew")
+    // BindingResult must come before Model
+    // The order sequence matters!
+    public String addEmployee(@Valid @ModelAttribute("employee") Employee employeeForm, 
+    BindingResult result, Model model) {
 
-    //     if (result.hasErrors()) {
-    //         return "employeeadd";
-    //     }
+        if (result.hasErrors()) {
+            return "employeeadd";
+        }
 
-    //     Boolean bresult = false;
-    //     bresult = empRepo.save(employeeForm);
+        Boolean bresult = false;
+        bresult = empRepo.save(employeeForm);
         
-    //     return "redirect:/home";
-    // }
+        return "redirect:/employees/home";
+    }
 
 }
